@@ -10,3 +10,13 @@ func TestAllRunesUnique(t * testing.T) {
 			t.Errorf("Err")
 	}
 }
+
+func TestAllRunesUniqueNoDataStructures(t * testing.T) {
+	if !(
+		AllRunesUniqueNoDataStructures("aaa") == false &&
+		AllRunesUniqueNoDataStructures("aba") == false &&
+		AllRunesUniqueNoDataStructures("a") == true &&
+		AllRunesUniqueNoDataStructures("") == true) {
+			t.Errorf("Err")
+	}
+}
