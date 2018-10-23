@@ -20,17 +20,15 @@ func (this *StackBasedQueue) Len() int {
 
 func (this *StackBasedQueue) Enqueue(value interface{}) {
 	for ; this.mainStack.Len() > 0 ; {
-		top := this.mainStack.Pop()
-		this.helperStack.Push(top)
+		this.helperStack.Push(this.mainStack.Pop())
 	}
 	this.mainStack.Push(value)
-	for ; this.helperStack.Len() > 0 ; {
-		top := this.helperStack.Pop()
-		this.mainStack.Push(top)
-	}
 }
 
 func (this *StackBasedQueue) Dequeue() interface{} {
+	for ; this.helperStack.Len() > 0 ; {
+		this.mainStack.Push(this.helperStack.Pop())
+	}
 	if this.mainStack.Len() > 0 {
 		return this.mainStack.Pop()
 	}
