@@ -1,4 +1,4 @@
-package pg174
+package problem_8_5
 
 import (
 	"fmt"

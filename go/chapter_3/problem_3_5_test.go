@@ -1,4 +1,4 @@
-package pg120
+package problem_3_5
 
 import "testing"
 import "github.com/collections/stack"
